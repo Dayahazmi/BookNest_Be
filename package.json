@@ -1,5 +1,5 @@
 {
-  "name": "BookNest",
+  "name": "book-nest",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts"
@@ -15,7 +15,6 @@
     "hono": "^4.5.11",
     "jsonwebtoken": "^9.0.2",
     "nanoid": "^5.0.7",
-    "pg": "^8.12.0",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

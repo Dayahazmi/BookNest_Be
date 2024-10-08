@@ -1,20 +1,8 @@
-import pkg from 'pg'; // Import the whole package
 import dotenv from 'dotenv';
+import { PrismaClient } from '@prisma/client'
 
 dotenv.config();
 
-const { Client } = pkg;
+const prisma = new PrismaClient()
 
-// Destructure the Client from the imported package
-
-export const connectToDB = async () => {
-    const client = new Client({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false,
-        },
-    });
-
-    await client.connect();
-    return client;
-};
+export default prisma;

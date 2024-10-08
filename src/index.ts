@@ -2,8 +2,6 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import authRouter from './auth';
 import bookRouter from './book';
-import { connectToDB } from './utils/db';
-import cors, { CorsRequest } from 'cors';
 import profileRouter from './profile';
 
 const app = new Hono()

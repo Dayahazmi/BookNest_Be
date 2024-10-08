@@ -1,14 +1,12 @@
 import { Hono } from 'hono';
-import { connectToDB } from './utils/db';
-import { PrismaClient } from "@prisma/client";// Import the connection function
 import { comparePassword, CustomContext, generateToken, hashPassword, tokenMiddleware } from './utils/authutils';
 import { decode, sign as JWTSign, verify } from 'hono/jwt'
 import { nanoid } from 'nanoid';
+import prisma from './utils/db';
 
 const JWT_SECRET = 'dayahazmi'
 
 const authRouter = new Hono();
-const prisma = new PrismaClient;
 // authRouter.use('*', tokenMiddleware);
 
 // async function main() {
