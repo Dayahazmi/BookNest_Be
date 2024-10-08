@@ -25,12 +25,40 @@ Social Features: Share your reading journey with friends.
 <p>We welcome contributions! Please feel free to submit a Pull Request or open an issue for any bugs or feature requests.</p>
 
 
+# Project Setup
 
+Ensure you have the following installed:
+- [Docker](https://docs.docker.com/get-docker/)
+- [Node.js](https://nodejs.org/en/download/)
+
+## Step 1: Start PostgreSQL with Docker
+
+1. Start the PostgreSQL container by running:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+2. Open your `.env` file (created by Prisma) and set the `DATABASE_URL` for your PostgreSQL database:
+
+   ```env
+   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/book_nest"
+   ```
+
+3. Run the Prisma migration to apply your existing schema to the PostgreSQL database:
+
+```bash
+npx prisma migrate dev
 ```
-npm install
+
+4. Generate the Prisma client:
+
+```bash
+npx prisma generate
+```
+
+5. Start the API server:
+
+```bash
 npm run dev
-```
-
-```
-open http://localhost:3000
 ```

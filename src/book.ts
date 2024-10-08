@@ -1,13 +1,10 @@
 import { Hono } from 'hono'
-import { PrismaClient } from "@prisma/client";
 import { nanoid } from 'nanoid';
 import { tokenMiddleware, CustomContext } from "./utils/authutils";
-
+import prisma from './utils/db';
 
 const bookRouter = new Hono();
 bookRouter.use('*', tokenMiddleware);
-
-const prisma = new PrismaClient;
 
 bookRouter.get('/testing', (c) => {
     return c.text('Hello this is Book!')
